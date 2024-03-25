@@ -61,7 +61,6 @@ elif flavor == "Power":
 elif flavor == "Parabolic":
     C = st.number_input("K", value=.75)
 
-#resolution = st.select_slider("Resolution", options=[0.1, 0.2, 0.3, 0.4, 0.5], value=0.3)
 resolution = st.number_input("Resolution", value=.3)
 
 # Calculate
