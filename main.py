@@ -53,7 +53,7 @@ else:
 if flavor == "Von Karman":
     C = st.number_input("C", value=1 / 3)
 elif flavor == "Power":
-    C = st.number_input("n", value=0.75)
+    C = st.number_input("n", value=0.5)
 elif flavor == "Parabolic":
     C = st.number_input("K", value=.75)
 
