@@ -69,6 +69,7 @@ df = pd.DataFrame(out)
 
 # Plot
 fig = px.line(x=df[0], y=df[1])
+fig.add_trace(px.line(x=df[0], y=-df[1]).data[0])
 fig.update_yaxes(
     scaleanchor="x",
     scaleratio=1,
