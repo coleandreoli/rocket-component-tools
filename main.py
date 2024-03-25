@@ -45,13 +45,13 @@ st.write("Use the exported data to create a nose cone in CAD software.\nhttps://
 
 # Inputs
 flavor = st.sidebar.selectbox("Nose Cone Type", ["Von Karman", "Power", "Parabolic"])
-d = st.number_input("Diameter", value=106)
+d = st.number_input("Diameter", value=106.0)
 length_type = st.radio("Length Type", ["Aspect Ratio", "Length"])
 if length_type == "Aspect Ratio":
     aspect = st.number_input("Aspect Ratio", value=1.5)
     length = None
 else:
-    length = st.number_input("Length", value=159)
+    length = st.number_input("Length", value=159.0)
     aspect = None
 
 if flavor == "Von Karman":
