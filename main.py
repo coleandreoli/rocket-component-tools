@@ -10,7 +10,10 @@ import plotly.express as px
 def convert_df(df):
     # IMPORTANT: Cache the conversion to prevent computation on every rerun
     return df.to_csv(index=False, header=False).encode('utf-8')
-
+@st.cache_data
+def convert_df_txt(df):
+    # IMPORTANT: Cache the conversion to prevent computation on every rerun
+    return df.to_csv(sep='\t', index=False, header=False).encode('utf-8')
 
 def make_cone(d, C, resolution, nose_type, aspect=None, l=None):
     # Calculations
@@ -58,21 +61,12 @@ elif flavor == "Power":
 elif flavor == "Parabolic":
     C = st.number_input("K", value=.75)
 
-resolution = st.select_slider("Resolution", options=[0.1, 0.2, 0.3, 0.4, 0.5], value=0.3)
+#resolution = st.select_slider("Resolution", options=[0.1, 0.2, 0.3, 0.4, 0.5], value=0.3)
+resolution = st.number_input("Resolution", value=.3)
 
 # Calculate
 out = make_cone(d, C, resolution, flavor, aspect=aspect, l=length)
-
-# Download
 df = pd.DataFrame(out)
-csv = convert_df(df)
-st.download_button(
-    label="Download data as CSV",
-    data=csv,
-    file_name='nosecone.csv',
-    mime='text/csv',
-)
-
 
 # Plot
 fig = px.line(x=df[0], y=df[1])
@@ -81,6 +75,12 @@ fig.update_yaxes(
     scaleratio=1,
 )
 st.plotly_chart(fig)
+
+# Download
+csv = convert_df(df)
+txt = convert_df_txt(df)
+st.download_button(label="Download data as CSV",data=csv,file_name='nosecone.csv',mime='text/csv',)
+st.download_button(label="Download data as txt", data=txt, file_name='nosecone.txt', mime='text/plain')
 
 
 button = """
