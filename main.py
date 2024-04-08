@@ -83,21 +83,21 @@ st.download_button(label="Download data as CSV",data=csv,file_name='nosecone.csv
 st.download_button(label="Download data as txt", data=txt, file_name='nosecone.txt', mime='text/plain')
 
 
-button = """
-<script type="text/javascript" src="https://cdnjs.buymeacoffee.com/1.0.0/button.prod.min.js" data-name="bmc-button" data-slug="niles55" data-color="#FFDD00" data-emoji=""  data-font="Cookie" data-text="Buy me a coffee" data-outline-color="#000000" data-font-color="#000000" data-coffee-color="#ffffff" ></script>
-"""
-
-html(button, height=70, width=220)
-
-st.markdown(
-    """
-    <style>
-        iframe[width="220"] {
-            position: fixed;
-            bottom: 60px;
-            right: 40px;
-        }
-    </style>
-    """,
-    unsafe_allow_html=True,
-)
+# button = """
+# <script type="text/javascript" src="https://cdnjs.buymeacoffee.com/1.0.0/button.prod.min.js" data-name="bmc-button" data-slug="niles55" data-color="#FFDD00" data-emoji=""  data-font="Cookie" data-text="Buy me a coffee" data-outline-color="#000000" data-font-color="#000000" data-coffee-color="#ffffff" ></script>
+# """
+#
+# html(button, height=70, width=220)
+#
+# st.markdown(
+#     """
+#     <style>
+#         iframe[width="220"] {
+#             position: fixed;
+#             bottom: 60px;
+#             right: 40px;
+#         }
+#     </style>
+#     """,
+#     unsafe_allow_html=True,
+# )
